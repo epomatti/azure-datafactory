@@ -27,6 +27,6 @@ output "primary_dfs_endpoint" {
 #   value = azurerm_storage_data_lake_gen2_filesystem.stage.name
 # }
 
-# output "synapse_transf_filesystem_id" {
-#   value = azurerm_storage_data_lake_gen2_filesystem.transf.id
-# }
+output "synapse_filesystem_id" {
+  value = azurerm_storage_data_lake_gen2_filesystem.synapse.id
+}

@@ -49,7 +49,7 @@ module "data_lake" {
   workload            = local.workload
   resource_group_name = azurerm_resource_group.default.name
   location            = azurerm_resource_group.default.location
-  network_ip_rules    = var.allowed_public_cidrs
+  allowed_public_ips  = var.allowed_public_ips
   # datastores_service_principal_object_id = module.entra.service_principal_object_id
 }
 
@@ -66,6 +66,15 @@ module "data_factory" {
   integration_runtime_compute_type    = var.adf_integration_runtime_compute_type
   integration_runtime_core_count      = var.adf_integration_runtime_core_count
   integration_runtime_ttl_min         = var.adf_integration_runtime_ttl_min
+}
+
+module "synapse" {
+  source                               = "./modules/synapse"
+  workload                             = local.workload
+  resource_group_name                  = azurerm_resource_group.default.name
+  location                             = azurerm_resource_group.default.location
+  storage_data_lake_gen2_filesystem_id = module.data_lake.synapse_filesystem_id
+  allowed_public_ips                   = var.allowed_public_ips
 }
 
 # module "blobs" {

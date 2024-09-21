@@ -6,6 +6,10 @@ variable "location" {
   type = string
 }
 
+variable "storage_data_lake_gen2_filesystem_id" {
+  type = string
+}
+
 variable "workload" {
   type = string
 }
@@ -13,7 +17,3 @@ variable "workload" {
 variable "allowed_public_ips" {
   type = list(string)
 }
-
-# variable "databricks_service_principal_object_id" {
-#   type = string
-# }

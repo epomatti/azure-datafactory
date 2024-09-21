@@ -12,7 +12,7 @@ variable "project" {
   default = "litware"
 }
 
-variable "allowed_public_cidrs" {
+variable "allowed_public_ips" {
   type = list(string)
 }
 
@@ -30,4 +30,8 @@ variable "adf_integration_runtime_core_count" {
 
 variable "adf_integration_runtime_ttl_min" {
   type = number
+}
+
+variable "synapse_sql_pool" {
+  type = string
 }

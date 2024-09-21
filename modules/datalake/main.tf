@@ -23,7 +23,7 @@ resource "azurerm_storage_account" "lake" {
 
   network_rules {
     default_action             = "Deny"
-    ip_rules                   = var.network_ip_rules
+    ip_rules                   = var.allowed_public_ips
     virtual_network_subnet_ids = []
     bypass                     = ["AzureServices"]
   }
@@ -47,14 +47,15 @@ resource "azurerm_role_assignment" "storage_blob_data_owner" {
   principal_id         = local.current_client_object_id
 }
 
-# resource "azurerm_storage_data_lake_gen2_filesystem" "source" {
-#   name               = "raw-source"
-#   storage_account_id = azurerm_storage_account.lake.id
+resource "azurerm_storage_data_lake_gen2_filesystem" "synapse" {
+  name               = "synapse"
+  storage_account_id = azurerm_storage_account.lake.id
 
-#   depends_on = [
-#     azurerm_role_assignment.adlsv2,
-#   ]
-# }
+  depends_on = [
+    azurerm_role_assignment.storage_blob_data_contributor,
+    azurerm_role_assignment.storage_blob_data_owner,
+  ]
+}
 
 # resource "azurerm_storage_blob" "tokyo" {
 #   name                   = "tokyo2011.zip"
