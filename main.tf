@@ -83,7 +83,7 @@ module "data_factory" {
   synapse_workspace_id           = module.synapse.workspace_id
   synapse_principal_id           = module.synapse.workspace_principal_id
   synapse_workspace_name         = module.synapse.workspace_name
-  synapse_pool001_name           = module.synapse.pool001_name
+  # synapse_pool001_name           = module.synapse.pool001_name
   synapse_administrator_login    = var.synapse_administrator_login
   synapse_administrator_password = var.synapse_administrator_password
 }

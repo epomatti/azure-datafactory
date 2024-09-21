@@ -39,16 +39,16 @@ resource "azurerm_synapse_firewall_rule" "allow" {
   end_ip_address       = var.allowed_public_ips[count.index]
 }
 
-resource "azurerm_synapse_sql_pool" "pool001" {
-  name                      = "syndp001"
-  synapse_workspace_id      = azurerm_synapse_workspace.w001.id
-  sku_name                  = var.pool_sku_name
-  collation                 = "SQL_Latin1_General_CP1_CI_AS"
-  create_mode               = "Default"
-  storage_account_type      = "LRS"
-  data_encrypted            = true
-  geo_backup_policy_enabled = false
-}
+# resource "azurerm_synapse_sql_pool" "pool001" {
+#   name                      = "syndp001"
+#   synapse_workspace_id      = azurerm_synapse_workspace.w001.id
+#   sku_name                  = var.pool_sku_name
+#   collation                 = "SQL_Latin1_General_CP1_CI_AS"
+#   create_mode               = "Default"
+#   storage_account_type      = "LRS"
+#   data_encrypted            = true
+#   geo_backup_policy_enabled = false
+# }
 
 resource "azurerm_synapse_managed_private_endpoint" "datalake" {
   name                 = "datalake"

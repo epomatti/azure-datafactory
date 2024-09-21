@@ -56,6 +56,6 @@ variable "synapse_workspace_name" {
 }
 
 
-variable "synapse_pool001_name" {
-  type = string
-}
+# variable "synapse_pool001_name" {
+#   type = string
+# }
