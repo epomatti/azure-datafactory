@@ -6,6 +6,10 @@ variable "location" {
   type = string
 }
 
+variable "datalake_storage_account_id" {
+  type = string
+}
+
 variable "storage_data_lake_gen2_filesystem_id" {
   type = string
 }

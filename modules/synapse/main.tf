@@ -17,6 +17,7 @@ resource "azurerm_synapse_workspace" "w001" {
   sql_administrator_login              = var.sql_administrator_login
   sql_administrator_login_password     = var.sql_administrator_password
   storage_data_lake_gen2_filesystem_id = var.storage_data_lake_gen2_filesystem_id
+  managed_virtual_network_enabled      = true
 
   identity {
     type = "SystemAssigned"
@@ -47,4 +48,13 @@ resource "azurerm_synapse_sql_pool" "pool001" {
   storage_account_type      = "LRS"
   data_encrypted            = true
   geo_backup_policy_enabled = false
+}
+
+resource "azurerm_synapse_managed_private_endpoint" "datalake" {
+  name                 = "datalake"
+  synapse_workspace_id = azurerm_synapse_workspace.w001.id
+  target_resource_id   = var.datalake_storage_account_id
+  subresource_name     = "dfs"
+
+  depends_on = [azurerm_synapse_firewall_rule.allow]
 }

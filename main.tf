@@ -58,6 +58,7 @@ module "synapse" {
   workload                             = local.workload
   resource_group_name                  = azurerm_resource_group.default.name
   location                             = azurerm_resource_group.default.location
+  datalake_storage_account_id          = module.data_lake.storage_account_id
   storage_data_lake_gen2_filesystem_id = module.data_lake.synapse_filesystem_id
   allowed_public_ips                   = var.allowed_public_ips
   pool_sku_name                        = var.synapse_pool_sku_name
