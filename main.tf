@@ -44,6 +44,13 @@ module "monitor" {
   location            = azurerm_resource_group.default.location
 }
 
+module "data_factory" {
+  source              = "./modules/adf"
+  workload            = local.workload
+  resource_group_name = azurerm_resource_group.default.name
+  location            = azurerm_resource_group.default.location
+}
+
 
 # module "data_lake" {
 #   source                                 = "./modules/datalake"

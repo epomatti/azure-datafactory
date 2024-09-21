@@ -1,4 +1,4 @@
-variable "group" {
+variable "resource_group_name" {
   type = string
 }
 
@@ -10,11 +10,11 @@ variable "workload" {
   type = string
 }
 
-variable "datalake_primary_dfs_endpoint" {
-  type = string
-}
+# variable "datalake_primary_dfs_endpoint" {
+#   type = string
+# }
 
-variable "datalake_primary_access_key" {
-  type      = string
-  sensitive = true
-}
+# variable "datalake_primary_access_key" {
+#   type      = string
+#   sensitive = true
+# }
