@@ -58,3 +58,15 @@ resource "azurerm_synapse_managed_private_endpoint" "datalake" {
 
   depends_on = [azurerm_synapse_firewall_rule.allow]
 }
+
+resource "azurerm_role_assignment" "storage_blob_data_contributor" {
+  scope                = var.datalake_storage_account_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_synapse_workspace.w001.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "storage_blob_data_owner" {
+  scope                = var.datalake_storage_account_id
+  role_definition_name = "Storage Blob Data Owner"
+  principal_id         = azurerm_synapse_workspace.w001.identity[0].principal_id
+}
