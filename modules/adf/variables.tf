@@ -33,3 +33,7 @@ variable "integration_runtime_core_count" {
 variable "integration_runtime_ttl_min" {
   type = number
 }
+
+variable "synapse_workspace_id" {
+  type = string
+}

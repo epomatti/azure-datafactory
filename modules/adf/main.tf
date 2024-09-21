@@ -26,11 +26,38 @@ resource "azurerm_data_factory_managed_private_endpoint" "datalake" {
   subresource_name   = "dfs"
 }
 
+resource "azurerm_data_factory_managed_private_endpoint" "synapse_sql" {
+  name               = "synapse-sql"
+  data_factory_id    = azurerm_data_factory.default.id
+  target_resource_id = var.synapse_workspace_id
+  subresource_name   = "Sql"
+}
+
+resource "azurerm_data_factory_managed_private_endpoint" "synapse_sql_on_demand" {
+  name               = "synapse-sql-on-demand"
+  data_factory_id    = azurerm_data_factory.default.id
+  target_resource_id = var.synapse_workspace_id
+  subresource_name   = "SqlOnDemand"
+}
+
+resource "azurerm_data_factory_managed_private_endpoint" "synapse_dev" {
+  name               = "synapse-dev"
+  data_factory_id    = azurerm_data_factory.default.id
+  target_resource_id = var.synapse_workspace_id
+  subresource_name   = "Dev"
+}
+
 resource "azurerm_data_factory_linked_service_data_lake_storage_gen2" "lake" {
   name                 = "Lake"
   data_factory_id      = azurerm_data_factory.default.id
   url                  = var.datalake_primary_dfs_endpoint
   use_managed_identity = true
+}
+
+resource "azurerm_data_factory_linked_service_synapse" "synapse" {
+  name              = "synapse"
+  data_factory_id   = azurerm_data_factory.default.id
+  connection_string = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"
 }
 
 resource "azurerm_role_assignment" "storage_blob_data_contributor" {
