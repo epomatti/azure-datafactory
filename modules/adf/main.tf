@@ -26,13 +26,12 @@ resource "azurerm_data_factory_managed_private_endpoint" "datalake" {
   subresource_name   = "dfs"
 }
 
-# resource "azurerm_data_factory_linked_service_data_lake_storage_gen2" "lake" {
-#   name                = "Lake"
-#   data_factory_id     = azurerm_data_factory.default.id
-#   url                 = var.datalake_primary_dfs_endpoint
-#   storage_account_key = var.datalake_primary_access_key
-
-# }
+resource "azurerm_data_factory_linked_service_data_lake_storage_gen2" "lake" {
+  name                 = "Lake"
+  data_factory_id      = azurerm_data_factory.default.id
+  url                  = var.datalake_primary_dfs_endpoint
+  use_managed_identity = true
+}
 
 # locals {
 #   data_lake_name = azurerm_data_factory_linked_service_data_lake_storage_gen2.lake.name

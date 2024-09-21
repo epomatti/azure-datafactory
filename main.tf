@@ -54,11 +54,12 @@ module "data_lake" {
 }
 
 module "data_factory" {
-  source                      = "./modules/adf"
-  workload                    = local.workload
-  resource_group_name         = azurerm_resource_group.default.name
-  location                    = azurerm_resource_group.default.location
-  datalake_storage_account_id = module.data_lake.storage_account_id
+  source                        = "./modules/adf"
+  workload                      = local.workload
+  resource_group_name           = azurerm_resource_group.default.name
+  location                      = azurerm_resource_group.default.location
+  datalake_storage_account_id   = module.data_lake.storage_account_id
+  datalake_primary_dfs_endpoint = module.data_lake.primary_dfs_endpoint
 }
 
 # module "blobs" {

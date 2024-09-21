@@ -11,9 +11,9 @@ output "storage_account_id" {
 #   sensitive = true
 # }
 
-# output "primary_dfs_endpoint" {
-#   value = azurerm_storage_account.lake.primary_dfs_endpoint
-# }
+output "primary_dfs_endpoint" {
+  value = azurerm_storage_account.lake.primary_dfs_endpoint
+}
 
 # output "secondary_dfs_endpoint" {
 #   value = azurerm_storage_account.lake.secondary_dfs_endpoint
