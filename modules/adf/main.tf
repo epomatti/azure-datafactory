@@ -45,6 +45,18 @@ resource "azurerm_role_assignment" "storage_blob_data_owner" {
   principal_id         = azurerm_data_factory.default.identity[0].principal_id
 }
 
+
+resource "azurerm_data_factory_integration_runtime_azure" "integratin_runtime_001" {
+  name                    = "IntegrationRuntime001"
+  data_factory_id         = azurerm_data_factory.default.id
+  location                = var.location
+  cleanup_enabled         = var.integration_runtime_cleanup_enabled
+  compute_type            = var.integration_runtime_compute_type
+  core_count              = var.integration_runtime_core_count
+  time_to_live_min        = var.integration_runtime_ttl_min
+  virtual_network_enabled = true
+}
+
 # locals {
 #   data_lake_name = azurerm_data_factory_linked_service_data_lake_storage_gen2.lake.name
 # }

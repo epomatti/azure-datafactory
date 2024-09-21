@@ -15,3 +15,19 @@ variable "project" {
 variable "allowed_public_cidrs" {
   type = list(string)
 }
+
+variable "adf_integration_runtime_cleanup_enabled" {
+  type = bool
+}
+
+variable "adf_integration_runtime_compute_type" {
+  type = string
+}
+
+variable "adf_integration_runtime_core_count" {
+  type = number
+}
+
+variable "adf_integration_runtime_ttl_min" {
+  type = number
+}
