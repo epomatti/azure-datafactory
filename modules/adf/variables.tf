@@ -10,6 +10,10 @@ variable "workload" {
   type = string
 }
 
+variable "datalake_storage_account_id" {
+  type = string
+}
+
 # variable "datalake_primary_dfs_endpoint" {
 #   type = string
 # }

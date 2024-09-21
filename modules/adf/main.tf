@@ -12,9 +12,18 @@ resource "azurerm_data_factory" "default" {
   resource_group_name    = var.resource_group_name
   public_network_enabled = true
 
+  managed_virtual_network_enabled = true
+
   identity {
     type = "SystemAssigned"
   }
+}
+
+resource "azurerm_data_factory_managed_private_endpoint" "datalake" {
+  name               = "datalake"
+  data_factory_id    = azurerm_data_factory.default.id
+  target_resource_id = var.datalake_storage_account_id
+  subresource_name   = "dfs"
 }
 
 # resource "azurerm_data_factory_linked_service_data_lake_storage_gen2" "lake" {

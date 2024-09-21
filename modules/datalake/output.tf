@@ -1,9 +1,9 @@
+output "storage_account_id" {
+  value = azurerm_storage_account.lake.id
+}
+
 # output "storage_account_name" {
 #   value = azurerm_storage_account.lake.name
-# }
-
-# output "storage_account_id" {
-#   value = azurerm_storage_account.lake.id
 # }
 
 # output "primary_access_key" {
