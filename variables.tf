@@ -32,7 +32,19 @@ variable "adf_integration_runtime_ttl_min" {
   type = number
 }
 
-variable "synapse_pool_sku_name" {
+variable "synapse_sql_pool_sku_name" {
+  type = string
+}
+
+variable "synapse_spark_node_size_family" {
+  type = string
+}
+
+variable "synapse_spark_node_count" {
+  type = number
+}
+
+variable "synapse_spark_node_size" {
   type = string
 }
 

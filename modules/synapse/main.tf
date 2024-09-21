@@ -70,3 +70,33 @@ resource "azurerm_role_assignment" "storage_blob_data_owner" {
   role_definition_name = "Storage Blob Data Owner"
   principal_id         = azurerm_synapse_workspace.w001.identity[0].principal_id
 }
+
+resource "azurerm_synapse_spark_pool" "spark001" {
+  name                 = "sparkpool001"
+  synapse_workspace_id = azurerm_synapse_workspace.w001.id
+  node_size_family     = var.spark_node_size_family
+  node_size            = var.spark_node_size
+  node_count           = var.spark_node_count
+  cache_size           = 100
+  spark_version        = "3.4"
+
+  auto_pause {
+    delay_in_minutes = 15
+  }
+
+  #   library_requirement {
+  #     content  = <<EOF
+  # appnope==0.1.0
+  # beautifulsoup4==4.6.3
+  # EOF
+  #     filename = "requirements.txt"
+  #   }
+
+  #   spark_config {
+  #     content  = <<EOF
+  # spark.shuffle.spill                true
+  # EOF
+  #     filename = "config.txt"
+  #   }
+
+}

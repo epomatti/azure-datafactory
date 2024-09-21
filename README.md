@@ -23,6 +23,9 @@ az storage blob upload --auth-mode login -f ./nyc-trip-records.parquet -c synaps
 ```
 
 
+create lakehouse database `Database1` in parquet format
+
+Create table from source
 
 
 https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/query-parquet-files
@@ -36,3 +39,5 @@ https://learn.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-wa
 CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
 EXEC sp_addrolemember db_owner, [your_resource_name];
 ```
+
+https://learn.microsoft.com/en-us/azure/synapse-analytics/database-designer/quick-start-create-lake-database

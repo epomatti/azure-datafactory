@@ -22,8 +22,20 @@ variable "allowed_public_ips" {
   type = list(string)
 }
 
-variable "pool_sku_name" {
+variable "sql_pool_sku_name" {
   type = string
+}
+
+variable "spark_node_size_family" {
+  type = string
+}
+
+variable "spark_node_size" {
+  type = string
+}
+
+variable "spark_node_count" {
+  type = number
 }
 
 variable "sql_administrator_login" {
