@@ -37,3 +37,25 @@ variable "integration_runtime_ttl_min" {
 variable "synapse_workspace_id" {
   type = string
 }
+
+variable "synapse_principal_id" {
+  type = string
+}
+
+variable "synapse_administrator_login" {
+  type = string
+}
+
+variable "synapse_administrator_password" {
+  type      = string
+  sensitive = true
+}
+
+variable "synapse_workspace_name" {
+  type = string
+}
+
+
+variable "synapse_pool001_name" {
+  type = string
+}

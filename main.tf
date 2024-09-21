@@ -60,6 +60,9 @@ module "synapse" {
   location                             = azurerm_resource_group.default.location
   storage_data_lake_gen2_filesystem_id = module.data_lake.synapse_filesystem_id
   allowed_public_ips                   = var.allowed_public_ips
+  pool_sku_name                        = var.synapse_pool_sku_name
+  sql_administrator_login              = var.synapse_administrator_login
+  sql_administrator_password           = var.synapse_administrator_password
 }
 
 module "data_factory" {
@@ -76,7 +79,12 @@ module "data_factory" {
   integration_runtime_core_count      = var.adf_integration_runtime_core_count
   integration_runtime_ttl_min         = var.adf_integration_runtime_ttl_min
 
-  synapse_workspace_id = module.synapse.workspace_id
+  synapse_workspace_id           = module.synapse.workspace_id
+  synapse_principal_id           = module.synapse.workspace_principal_id
+  synapse_workspace_name         = module.synapse.workspace_name
+  synapse_pool001_name           = module.synapse.pool001_name
+  synapse_administrator_login    = var.synapse_administrator_login
+  synapse_administrator_password = var.synapse_administrator_password
 }
 
 # module "blobs" {

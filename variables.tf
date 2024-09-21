@@ -32,6 +32,15 @@ variable "adf_integration_runtime_ttl_min" {
   type = number
 }
 
-variable "synapse_sql_pool" {
+variable "synapse_pool_sku_name" {
   type = string
+}
+
+variable "synapse_administrator_login" {
+  type = string
+}
+
+variable "synapse_administrator_password" {
+  type      = string
+  sensitive = true
 }
