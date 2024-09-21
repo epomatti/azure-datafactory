@@ -10,10 +10,6 @@ variable "workload" {
   type = string
 }
 
-variable "virtual_network_subnet_ids" {
-  type = list(string)
-}
-
 variable "network_ip_rules" {
   type = list(string)
 }

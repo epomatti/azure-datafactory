@@ -44,21 +44,20 @@ module "monitor" {
   location            = azurerm_resource_group.default.location
 }
 
+module "data_lake" {
+  source              = "./modules/datalake"
+  workload            = local.workload
+  resource_group_name = azurerm_resource_group.default.name
+  location            = azurerm_resource_group.default.location
+  network_ip_rules    = var.allowed_public_cidrs
+  # datastores_service_principal_object_id = module.entra.service_principal_object_id
+}
+
 module "data_factory" {
   source              = "./modules/adf"
   workload            = local.workload
   resource_group_name = azurerm_resource_group.default.name
   location            = azurerm_resource_group.default.location
-}
-
-module "data_lake" {
-  source                     = "./modules/datalake"
-  workload                   = local.workload
-  resource_group_name        = azurerm_resource_group.default.name
-  location                   = azurerm_resource_group.default.location
-  network_ip_rules           = var.allowed_public_cidrs
-  virtual_network_subnet_ids = []
-  # datastores_service_principal_object_id = module.entra.service_principal_object_id
 }
 
 # module "blobs" {
