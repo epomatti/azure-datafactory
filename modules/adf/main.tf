@@ -33,6 +33,18 @@ resource "azurerm_data_factory_linked_service_data_lake_storage_gen2" "lake" {
   use_managed_identity = true
 }
 
+resource "azurerm_role_assignment" "storage_blob_data_contributor" {
+  scope                = var.datalake_storage_account_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_data_factory.default.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "storage_blob_data_owner" {
+  scope                = var.datalake_storage_account_id
+  role_definition_name = "Storage Blob Data Owner"
+  principal_id         = azurerm_data_factory.default.identity[0].principal_id
+}
+
 # locals {
 #   data_lake_name = azurerm_data_factory_linked_service_data_lake_storage_gen2.lake.name
 # }
