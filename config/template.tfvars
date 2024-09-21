@@ -1,6 +1,8 @@
+location = "eastus2"
+project  = "litware"
+
 subscription_id    = ""
 allowed_public_ips = [""]
-
 
 adf_integration_runtime_cleanup_enabled = true
 adf_integration_runtime_compute_type    = "General"

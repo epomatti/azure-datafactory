@@ -3,13 +3,11 @@ variable "subscription_id" {
 }
 
 variable "location" {
-  type    = string
-  default = "eastus2"
+  type = string
 }
 
 variable "project" {
-  type    = string
-  default = "litware"
+  type = string
 }
 
 variable "allowed_public_ips" {
