@@ -51,16 +51,15 @@ module "data_factory" {
   location            = azurerm_resource_group.default.location
 }
 
-
-# module "data_lake" {
-#   source                                 = "./modules/datalake"
-#   workload                               = local.workload
-#   resource_group_name                    = azurerm_resource_group.default.name
-#   location                               = azurerm_resource_group.default.location
-#   ip_network_rules                       = local.allowed_ip_addresses
-#   datastores_service_principal_object_id = module.entra.service_principal_object_id
-#   subnet_id                              = module.vnet.default_subnet_id
-# }
+module "data_lake" {
+  source                     = "./modules/datalake"
+  workload                   = local.workload
+  resource_group_name        = azurerm_resource_group.default.name
+  location                   = azurerm_resource_group.default.location
+  network_ip_rules           = var.allowed_public_cidrs
+  virtual_network_subnet_ids = []
+  # datastores_service_principal_object_id = module.entra.service_principal_object_id
+}
 
 # module "blobs" {
 #   source                                 = "./modules/blob"
