@@ -68,6 +68,12 @@ resource "azurerm_data_factory_linked_service_synapse" "synapse_ondemand" {
   # https://github.com/hashicorp/terraform-provider-azurerm/pull/9928
   connection_string        = "Data Source=${var.synapse_workspace_name}-ondemand.sql.azuresynapse.net;Initial Catalog=Database1;Persist Security Info=False;User ID=${var.synapse_administrator_login};Password=${var.synapse_administrator_password};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
   integration_runtime_name = azurerm_data_factory_integration_runtime_azure.integratin_runtime_001.name
+
+  lifecycle {
+    ignore_changes = [
+      connection_string,
+    ]
+  }
 }
 
 resource "azurerm_role_assignment" "storage_blob_data_contributor" {

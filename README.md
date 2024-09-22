@@ -76,6 +76,7 @@ Create a new **Table** from the data lake:
 
 - [Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines](https://learn.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse?tabs=data-factory#managed-identity)
 - [Quickstart: Create a new lake database leveraging database templates](https://learn.microsoft.com/en-us/azure/synapse-analytics/database-designer/quick-start-create-lake-database)
+- [Introduction to Microsoft Spark Utilities](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-python)
 
 
 [1]: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
