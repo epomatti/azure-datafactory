@@ -70,13 +70,16 @@ Create a new **Table** from the data lake:
 
 ### Spark
 
+Upload the [spark/synapse-transform.ipynb](spark/synapse-transform.ipynb) notebook to Synapse.
 
+Connect to the Spark pool and run the notebook.
 
 ## Reference
 
 - [Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines](https://learn.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse?tabs=data-factory#managed-identity)
 - [Quickstart: Create a new lake database leveraging database templates](https://learn.microsoft.com/en-us/azure/synapse-analytics/database-designer/quick-start-create-lake-database)
 - [Introduction to Microsoft Spark Utilities](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities?pivots=programming-language-python)
+- [Quickstart: Create a serverless Apache Spark pool in Azure Synapse Analytics using web tools](https://learn.microsoft.com/en-us/azure/synapse-analytics/quickstart-apache-spark-notebook)
 
 
 [1]: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
