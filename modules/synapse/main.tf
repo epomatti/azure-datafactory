@@ -78,7 +78,7 @@ resource "azurerm_synapse_spark_pool" "spark001" {
   node_size            = var.spark_node_size
   node_count           = var.spark_node_count
   cache_size           = 100
-  spark_version        = "3.4"  
+  spark_version        = "3.4"
 
   auto_pause {
     delay_in_minutes = 15
@@ -92,11 +92,11 @@ resource "azurerm_synapse_spark_pool" "spark001" {
   #     filename = "requirements.txt"
   #   }
 
-  #   spark_config {
-  #     content  = <<EOF
-  # spark.shuffle.spill                true
-  # EOF
-  #     filename = "config.txt"
-  #   }
-
+  # spark_config {
+  # #   content  = <<EOF
+  # # spark.shuffle.spill                true
+  # # EOF
+  #   content = ""
+  #   filename = "config.txt"
+  # }
 }

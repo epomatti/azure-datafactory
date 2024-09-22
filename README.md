@@ -23,8 +23,10 @@ Create the resources:
 
 ```sh
 terraform init
-terraform appply -auto-approve
+terraform apply -auto-approve
 ```
+
+## Private Endpoint
 
 Approve the managed private endpoints generated for:
 
@@ -51,6 +53,8 @@ az storage blob upload --auth-mode login -f ./nyctls/nyc-trip-records.parquet -c
 
 ## Synapse
 
+### Lake database
+
 Create a new **Lake database**:
 
 - Name: Database1
@@ -63,6 +67,10 @@ Create a new **Table** from the data lake:
 - External tablet name: nyc_taxi
 - Linked service: The data lake storage
 - Input file: synapse/database/nyc-trip-records.parquet
+
+### Spark
+
+
 
 ## Reference
 

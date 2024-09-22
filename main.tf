@@ -53,6 +53,13 @@ module "data_lake" {
   # datastores_service_principal_object_id = module.entra.service_principal_object_id
 }
 
+module "sftp" {
+  source              = "./modules/sftp"
+  workload            = local.workload
+  resource_group_name = azurerm_resource_group.default.name
+  location            = azurerm_resource_group.default.location
+}
+
 module "synapse" {
   source                               = "./modules/synapse"
   workload                             = local.workload
